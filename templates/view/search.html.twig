@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ViewController!{% endblock %}
+
+{% block body %}
+<form action="../index.php/search" method="post" >
+<div class="container">
+<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input name="id" class="form-control" placeholder="ID" type="text">
+    </div> <!-- form-group// -->
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Search  </button>
+    </div>
+   </div>  <!-- form-group// -->  
+    </form>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Email</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.name}} </td>
+            <td>{{i.address}}</td>
+            <td>{{i.phoneNumber}}</td>
+            <td>{{i.email}}</td>
+            <td>
+            <a href="../index.php/edit?id={{i.id}}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+            <a href="../index.php/delete?id={{i.id}}"class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+        
+            </td>
+
+            <div class="btn btn-success">
+                <a href="../index.php/view">Show All</a>
+            </div>
+            
+            
+          </tr>
+        
+{% endblock %}
