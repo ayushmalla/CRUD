@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\TestRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=TestRepository::class)
@@ -19,21 +20,38 @@ class Test
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
+     * @Assert\Name(
+     *     message = "Fiil the Name!!!."
+     * )
+     
      */
     private $Name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
+     * @Assert\Address(
+     *     message = "Fill the Address!!!."
+     * )
      */
     private $Address;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
+     * @Assert\phone_number(
+     *     message = "Fill the number!!!."
+     * )
      */
     private $phone_number;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email."
+     * )
      */
     private $Email;
 
@@ -66,12 +84,12 @@ class Test
         return $this;
     }
 
-    public function getPhoneNumber(): ?int
+    public function getPhoneNumber(): ?string
     {
         return $this->phone_number;
     }
 
-    public function setPhoneNumber(int $phone_number): self
+    public function setPhoneNumber(string $phone_number): self
     {
         $this->phone_number = $phone_number;
 

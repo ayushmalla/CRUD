@@ -11,7 +11,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\Url;
 use Symfony\Flex\Path;
-
+use Symfony\Component\Validator\Constraints\Address;
+use Symfony\Component\Validator\Constraints\phone_number;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\Name;
 class ViewController extends AbstractController
 {
     #[Route('/view', name: 'view')]
